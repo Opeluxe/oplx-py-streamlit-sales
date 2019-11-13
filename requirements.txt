@@ -1,5 +1,6 @@
 streamlit
 altair
+lightgbm
 pandas
 numpy
 dill
