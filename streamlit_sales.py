@@ -135,7 +135,6 @@ else:
         selected_data = select_data(loaded_data, 
                                     __side_predictor_rows, 
                                     __side_predictor_rand)
-        __main_predictor_frame = st.dataframe(selected_data)
         __main_predictor_pstat.info('Predicting sales amount...')
         __main_predictor_prbar = st.empty()
         __main_predictor_prtxt = st.empty()
@@ -146,8 +145,9 @@ else:
                                                        __main_predictor_prtxt)
         metric = sum(predicted_values) / len(predicted_values)
         __main_predictor_pstat.info('Highlighting sales prediction results...')
+        #__main_predictor_frame = st.dataframe(selected_data)
         with st.spinner('Evaluating sales based on average...'):
-            __main_predictor_frame.dataframe(selected_data.style.apply(
+            __main_predictor_frame = st.dataframe(selected_data.style.apply(
                     highlight_data, metric=metric, axis=1))
         __main_predictor_pstat.info('Generating sales prediction chart...')
         with st.spinner('Generating Scatter Matrix...'):
