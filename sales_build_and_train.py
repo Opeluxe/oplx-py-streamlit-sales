@@ -57,7 +57,7 @@ class PreProcessing(BaseEstimator, TransformerMixin):
     def fit(self, df, y=None, **fit_params):
         """Fitting the Training dataset & calculating the required values from train
         """
-        #self.sales_mean_ = df['Sales'].mean()
+        #self.customers_mean_ = df['Customerss'].mean()
         return self
     
     def categoricalValues(self, df, column):

@@ -19,7 +19,7 @@ CHART = ['DayOfWeek', 'Customers', 'Sales', 'Promo']
 HEAD_ROWS = 15
 MIN_ROWS = 100
 DEFAULT_ROWS = 1000
-STEP_ROWS = 5000
+STEP_ROWS = 500
 
 # Data manipulation routines
 @st.cache(persistent=True)
@@ -110,7 +110,7 @@ if __side_select == 'Sales data detail':
     if __side_data_exec:
         # When "Show data!" is clicked, show dataframe information at main page
         __main_subtitle = st.subheader('Sales data detail')
-        __main_data_descr = st.dataframe(loaded_data.describe())
+        __main_data_descr = st.table(loaded_data.describe())
         if __side_data_size == 'Only header':
             with st.spinner('Loading header ({} registries)...'.format(HEAD_ROWS)):
                 __main_data_frame = st.dataframe(loaded_data.head(HEAD_ROWS))
@@ -121,7 +121,7 @@ if __side_select == 'Sales data detail':
         __main_data_pstat.warning('Sales data pending... click Show data!')
 else:
     # Show sidebar information for prediction
-    __side_predictor_rows = st.sidebar.slider('Number of registries to process', 
+    __side_predictor_rows = st.sidebar.number_input('Number of registries to process', 
                                  MIN_ROWS, 
                                  len(loaded_data),
                                  MIN_ROWS, 
