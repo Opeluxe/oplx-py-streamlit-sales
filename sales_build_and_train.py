@@ -67,7 +67,7 @@ class PreProcessing(BaseEstimator, TransformerMixin):
         return s
 
 if __name__ == '__main__':
-#   Build predictor (regressopm model)
+#   Build predictor (regression model)
     base_path = os.path.dirname(os.path.abspath("__file__"))
     train_file = base_path + '/data/train_k.csv'
     model = build_and_train(train_file)
