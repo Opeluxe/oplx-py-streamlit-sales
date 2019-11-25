@@ -84,7 +84,7 @@ def get_chart_data(data):
     return st.altair_chart(altchart, width=-1)
 
 # Data loading (and persistence)
-with st.spinner('Generating Scatter Matrix...'):
+with st.spinner('Loading data...'):
     loaded_data = load_data()
 
 # Sidebar layout (filters for dataframe and prediction)
@@ -146,7 +146,7 @@ else:
         metric = sum(predicted_values) / len(predicted_values)
         __main_predictor_pstat.info('Highlighting sales prediction results...')
         #__main_predictor_frame = st.dataframe(selected_data)
-        with st.spinner('Evaluating sales based on average...'):
+        with st.spinner('Evaluating sales using average...'):
             __main_predictor_frame = st.dataframe(selected_data.style.apply(
                     highlight_data, metric=metric, axis=1))
         __main_predictor_pstat.info('Generating sales prediction chart...')
